@@ -48,7 +48,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
- 
+    @task = current_user.tasks.find_by(id: params[:id])
     @task.destroy
 
     flash[:success] = 'Task は正常に削除されました'
